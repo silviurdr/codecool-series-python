@@ -11,16 +11,18 @@ table {
 table th {
     color: #fff;
     background: #278bc4;
+    text-align: center;
 }
 
 table td {
     font-size: 13px;
+    text-align: center;
 }
 
 table th,
 table td {
     margin: 0;
-    padding: 6px;
+    padding: 10px;
 }
 
 table tr:nth-child(even) {

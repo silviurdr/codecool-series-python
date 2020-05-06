@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="title text-center">Top Rated Shows</h1>
+
+<div class="card">
+    <h3><a href="{{url_for('top_20_actors')}}">Top 20 Actors</a></h3>
+    <table>
+        <thead>
+            <th>Title</th>
+            <th>Release Year</th>
+            <th>Runtime</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Trailer</th>
+            <th>Homepage</th>
+            {% if 'username' in session%} 
+            <th>Favorites</td>
+            {% endif %}
+        </thead>
+        <tbody>
+            {% for show in top_rated_shows %}
+            <tr>
+                {% if 'username' in session%}
+                <td><a href="/show-details/{{show['id']}}">{{show['title']}}</a></td>
+                {% else %}
+                <td>{{show['title']}}</td>
+                {% endif %}
+                <td>{{show['year']}}</td>
+                <td>{{show['runtime']}}</td>
+                <td class="genres">{{show['genres']}}</td>
+                <td>{{show['rating']}}</td>
+                <td><a href="{{show['trailer']}}">Show Trailer</a></td>
+                <td><a href="{{show['homepage']}}">Show Homepage</a></td>
+                {% if 'username' in session%} 
+                    <td><button" type="submit"><a href="/add-favorite/{{show['id']}}">Mark as Favorite</a></button></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>  
+
+{% endblock %}

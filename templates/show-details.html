@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="title text-center">Show Details</h1>
+
+<div class="card">
+    <h2>{{show_info['title']}}</h2>
+    <span>{{show_info['runtime']}}min</span>
+    <span class="separator">|</span>
+    <span>{{show_info['genres']}}</span>
+    <span class="separator">|</span>
+    <span>{{show_info['year']}}</span>
+    <p>{{show_info['overview']}}</p>
+</div>
+<div class="card">
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <h3 class="comment-subject">{{comment['subject']}}</h3>
+        <p style="margin-left:2em">{{comment['comment']}}</p>
+        <br>
+    {% endfor %}
+    {% if username is defined %}
+    <a href="{{url_for('add_comment', show_id=show_info['id'])}}">Add comment</a>
+    {% endif %}
+</div>
+
+{% endblock %}

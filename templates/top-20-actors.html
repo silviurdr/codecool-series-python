@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="title text-center">Top 20 actors and theirs shows</h1>
+
+<div class="card">
+    <ul>
+        {% for actor in top_actors %}
+            <li id="{{actor['id']}}" class="actors">{{actor['name']}}</li>
+            <ol class="hide">
+                {% for show in actor['actor_shows'].split(",")%}
+                    <li>{{show}}</li>
+                {% endfor %}
+            </ol>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

@@ -76,3 +76,16 @@ a:hover {
 .clearfix:after {
     clear: both;
 }
+
+
+.hide {
+    display: none;
+}
+
+.user-link {
+    color: red
+}
+
+.comment-subject {
+    color: blue;
+}

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="title text-center">Favorite Shows for {{session['username']}}</h1>
+
+<div class="card">
+    {% for favorite in favorites%}
+        <h1>{{favorite['title']}}</h1>
+    {% endfor %}
+</div>
+
+{% endblock %}
